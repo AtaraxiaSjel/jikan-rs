@@ -1,3 +1,4 @@
+pub mod anime;
 mod client;
 mod endpoint;
 mod error;
