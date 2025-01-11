@@ -47,7 +47,7 @@ pub struct PagedIter<'a, E, C, T> {
 
 #[derive(Debug, Serialize, Builder)]
 #[builder(pattern = "owned")]
-pub struct InnerState<'a, E> {
+pub(crate) struct InnerState<'a, E> {
     #[serde(skip)]
     pub(crate) endpoint: &'a E,
     pub(crate) page: u32,
