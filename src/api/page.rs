@@ -20,7 +20,7 @@ use crate::types::Pagination;
 /// Marker trait to indicate that an endpoint is pageable.
 pub trait Pageable {}
 
-// Adapters specific to [`Pageable`] endpoints.
+/// Adapters specific to [`Pageable`] endpoints.
 pub trait PagedEndpointExt<'a, E> {
     /// Create an Iterator over the results of the paginated endpoint.
     fn iter<T, C>(&'a self, client: &'a C) -> PagedIter<'a, E, C, T>
@@ -29,10 +29,12 @@ pub trait PagedEndpointExt<'a, E> {
         T: DeserializeOwned;
 }
 
+/// Asynchronous iterator over paginated endpoints.
 pub trait AsyncIterator {
+    /// The type of the items in this iterator.
     type Item;
 
-    // async fn next(&mut self) -> Option<Self::Item>;
+    /// Advance to the next page of results.
     fn next(&mut self) -> impl Future<Output = Option<Self::Item>> + Send;
 }
 

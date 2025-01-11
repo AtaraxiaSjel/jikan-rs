@@ -12,7 +12,7 @@ use super::error::ApiError;
 
 /// A parent trait representing a client which can communicate with jikan.moe
 pub trait RestClient {
-    /// The error that may occur for this client
+    /// The error that may occur for this client.
     type Error: Error + Send + Sync + 'static;
 
     /// Get the URL for the endpoint for the client.
@@ -23,7 +23,7 @@ pub trait RestClient {
 
 /// A trait representing a blocking client which can communicate with jikan.moe
 pub trait Client: RestClient {
-    /// Send a REST query
+    /// Send a REST query.
     fn rest(
         &self,
         request: RequestBuilder,
@@ -31,11 +31,11 @@ pub trait Client: RestClient {
     ) -> Result<Response<Bytes>, ApiError<Self::Error>>;
 }
 
-/// A trait representing an asynchronous client which can communicate with
+/// A trait representing an asynchronous client which can communicate with.
 /// jikan.moe
 #[async_trait]
 pub trait AsyncClient: RestClient {
-    /// Send a REST query asynchronously
+    /// Send a REST query asynchronously.
     async fn rest_async(
         &self,
         request: RequestBuilder,

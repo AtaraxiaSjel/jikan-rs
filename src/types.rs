@@ -1,3 +1,5 @@
+//! Helper types for jikan.moe responses.
+
 pub mod anime;
 mod common;
 

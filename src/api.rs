@@ -1,3 +1,6 @@
+//! Jikan.moe api wrapper.
+
+/// `/anime` endpoints.
 pub mod anime;
 mod client;
 mod endpoint;

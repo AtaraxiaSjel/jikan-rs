@@ -1,4 +1,4 @@
-//! Error types for the crate
+//! Error types for the crate.
 use thiserror::Error;
 
 use crate::api;
@@ -13,7 +13,7 @@ pub enum JikanApiError {
     /// Error from the jikan.moe API
     #[error("API error: {0}")]
     Api(#[from] api::ApiError<RestError>),
-    /// Error parsing URL
+    /// Error parsing URL.
     #[error("url parse error: {0}")]
     Parse(#[from] url::ParseError),
 }
@@ -22,10 +22,10 @@ pub enum JikanApiError {
 #[derive(Debug, Error)]
 #[non_exhaustive]
 pub enum RestError {
-    /// Reqwest client error
+    /// Reqwest client error.
     #[error("communication: {0}")]
     Communication(#[from] reqwest::Error),
-    /// HTTP protocol error
+    /// HTTP protocol error.
     #[error("HTTP error: {0}")]
     Http(#[from] http::Error),
 }

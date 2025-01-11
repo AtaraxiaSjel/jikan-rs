@@ -7,7 +7,7 @@ use crate::api::{
     page::Pageable,
 };
 
-/// Retrieves a list of users who have added/updated/removed
+/// Retrieves a list of users who have added/updated/removed.
 /// the entry on their list.
 #[derive(Debug, Clone, Builder)]
 #[builder(setter(into))]
