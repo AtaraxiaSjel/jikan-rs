@@ -3,3 +3,6 @@
 /.vscode
 /.devenv
 .envrc
+.aider*
+/openapi*
+output.json
